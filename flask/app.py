@@ -9,10 +9,10 @@ app = Flask(__name__)
 @app.route("/api/ad")
 def serve_ad_data():
 
-    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWxpZF9uZXR3b3JrX2lkcyI6WzBdfQ.TZBx402qk2xj1rVeaf3pokpZymOXhRhUDJ2kLvsGcZU"  # Replace with your actual bearer token
+    token = ""  # Replace with your actual token
     headers = {"Authorization": f"Bearer {token}"}
-    data = {"network_id": 0}
-    ad_server_url = "http://localhost:5001/auctions"
+    data = {"network_id": 0}  # Replace with your actual network_id
+    ad_server_url = "https://api.gruvian.com/auctions"
     response = requests.post(ad_server_url, headers=headers, json=data)
     if response.status_code != 201:
         return jsonify({}), response.status_code
