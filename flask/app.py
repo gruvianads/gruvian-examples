@@ -21,8 +21,28 @@ def serve_ad_data():
     ad_data = response.json()
     if ad_data.get("filled", False):
         ad = ad_data["winners"][0]["ad"]
-    else:
-        ad = {'description': {'data': 'Grow your business by advertising on Learn-C.org. Reach developers, students, and enthusiasts for as little as $15 per 1000 visitors', 'type': 'text'}, 'link_to': {'data': 'https://advertisers.gruvian.com/preview/learn-c', 'type': 'url'}, 'logo_image': {'data': {'alt': 'alt text', 'url': 'https://lh5.googleusercontent.com/proxy/1kSRxfD16cVW-UzLwRmpGbTRzEA7Usdw9gOVPiAFpTQ7NgCwqWrz3zdsP1eJs90FRbqwp3VJ6aYJQe4kp76u8-8dHHAWczgSb09b2qazP6Ep6foqCQ'}, 'type': 'image'}, 'title': {'data': 'Sponsor Learn-C.org', 'type': 'text'}}
+    else: # Default Ad
+        ad = {
+                'description': {
+                    'data': 'Grow your business by advertising on Learn-C.org. Reach developers, students, and enthusiasts for as little as $15 per 1000 visitors', 
+                    'type': 'text'
+                }, 
+                'link_to': {
+                    'data': 'https://advertisers.gruvian.com/preview/learn-c', 
+                    'type': 'url'
+                }, 
+                'logo_image': {
+                    'data': {
+                        'alt': 'alt text',
+                        'url': 'https://lh5.googleusercontent.com/proxy/1kSRxfD16cVW-UzLwRmpGbTRzEA7Usdw9gOVPiAFpTQ7NgCwqWrz3zdsP1eJs90FRbqwp3VJ6aYJQe4kp76u8-8dHHAWczgSb09b2qazP6Ep6foqCQ'
+                    }, 
+                    'type': 'image'
+                }, 
+                'title': {
+                    'data': 'Sponsor Learn-C.org', 
+                    'type': 'text'
+                }
+            }
 
     return jsonify(ad)
 
